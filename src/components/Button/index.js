@@ -2,9 +2,7 @@ import React from 'react';
 import './button.scss';
 
 const Button = (props) => (
-  <button onClick={props.onClick} style={props.style} disabled={props.disabled}>
-    {props.label && <span>{props.label}</span>}
-  </button>
+  <button className={`common-button ${props.className}`}>Read more</button>
 );
 
 export default Button;

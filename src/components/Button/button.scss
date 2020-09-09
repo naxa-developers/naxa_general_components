@@ -1,16 +1,191 @@
-button {
-  padding: 20px;
-  width: 20em;
-  margin: 10px;
-  color: white;
-  font-size: 19px;
-  cursor: pointer;
-  border: 2px solid #fecd43;
-  background: #fecd43;
-}
+a.common-link,
+  [class*=common-button] {
+    -webkit-font-smoothing: antialiased;
+    font-size: .938rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: initial;
+    padding: .5rem 1.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    min-height: 35px;
+    border: none;
+    outline: none;
+    line-height: inherit;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    overflow: hidden;
+    vertical-align: middle;
+    cursor: pointer;
+     transition: all .3s ease-in-out;
+    position: relative;
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        color: white;
+        background-color: rgb(196, 196, 196);
+        border-color: 0;
+        opacity: 0.65;
+        cursor: not-allowed;
+    }
 
-button[disabled] {
-  background: gray;
-  border: gray;
-  cursor: not-allowed;
-}
+    &.is-icon {
+        svg,
+        i {
+            font-size: 22px;
+            margin-left: 0;
+            transition: margin .5s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+            width: 0;
+            font-weight: 500;
+        }
+    }
+
+    &.is-disable {
+        color: white;
+        background-color: rgb(196, 196, 196);
+        border-color: rgb(196, 196, 196);
+        cursor: none;
+    }
+
+    &.is-bg {
+        color: white;
+        background-color: #0055ff;
+        border-color:#0055ff;
+        // @include box-shadow(0 10px 40px rgba($yellow-color, .25));
+
+        &:disabled {
+            color: white;
+            background-color: grey;
+            border-color: transparent;
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        &.is-disable {
+            color: white;
+            background-color: grey;
+            border-color: grey;
+        }
+
+        &:active{
+            box-shadow: 0 0 0 3px rgba(#0055ff, .4);
+        }
+
+        &:hover {
+            background-color: rgba(#0055ff, .9);
+            border-color: rgba(#0055ff, .9);
+            svg,i {
+                margin-left: .6125rem;
+                width: auto;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+    }
+
+    &.is-full-line {
+        width: 100%;
+    }
+
+    &.is-clear {
+        background-color: transparent;
+        border-width: 0;
+        min-width: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: #0055ff;
+        padding: 0;
+        min-height: initial;
+        min-width: initial;
+        &:hover {
+            color: #001ACB;
+            svg,i {
+                margin-left: .6125rem;
+                width: auto;
+                opacity: 1;
+                visibility: visible;
+                color:#001ACB;
+            }
+        }
+    }
+
+    &.is-border {
+        background-color: transparent;
+        color: #e6e6e6;
+        border: 1px solid #e6e6e6;
+        &:hover {
+            color: white;
+            background-color: #0055ff;
+            border-color:#0055ff;
+            svg,i {
+                margin-left: .6125rem;
+                width: auto;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+  &.no-border {
+      background-color: transparent;
+      color: #0055ff;
+      border-color: transparent;
+      &.is-icon {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          color: blue;
+          font-size: .9375rem;
+
+          i {
+              margin-right: .5rem;
+          }
+      }
+      &:hover{
+          color: #001ACB;
+      }
+  }
+
+  
+  button,
+  a {
+      &:not(:last-child) {
+          margin-right: 1rem;
+      }
+  }
+
+  &.is-start{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &.is-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  &.is-between {
+    display: flex;
+    align-items: center;
+    justify-content: between;
+  }
+
+  &.is-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  }

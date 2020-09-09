@@ -1,6 +1,7 @@
-import { addons } from '@storybook/addons';
-import { themes } from '@storybook/theming';
+// .storybook/manager.js
 
+import { addons } from '@storybook/addons';
+import myTheme from './myTheme';
 addons.setConfig({
-  theme: themes.dark,
+  theme: myTheme,
 });
