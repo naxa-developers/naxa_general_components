@@ -1,0 +1,46 @@
+.breadcrumb{
+    padding:.6125rem 1rem;
+    background-color: white;
+    border-bottom: 1px solid #e6e6e6;
+    ol{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin:0;
+        li{
+             font-size: .875rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            &.current{
+                color: #0055ff;
+            }
+            &:hover{
+                a{
+                    color: #0055ff;
+                }
+            }
+
+            a{
+                color: #7c7c7c;
+                font-size: .875rem;
+                font-weight: 500;
+                &:hover{
+                    color: #001ACB;
+                }
+            }
+            &:not(:last-child){
+                &::after{
+                    content:'\f054';
+                    font-family: 'Font Awesome 5 Free';
+                    display: inline-flex;
+                    margin:0 .6125rem;
+                    text-transform: initial;
+                    font-size: .875rem;
+                    color: #7c7c7c;
+                }
+            }
+        }
+    }
+}

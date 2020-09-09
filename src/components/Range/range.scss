@@ -1,0 +1,44 @@
+.range{
+    position: relative;
+    .bar{
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 15px;
+        width: 100%;
+        height: 3px;
+        background: #c7c7c7;
+        overflow: hidden;
+        .fill{
+            display: block;
+            width: 50%;
+            height: 100%;
+            background: #fd6f22;
+        }
+    }
+    .slider {
+        position: relative;
+        z-index: 2;
+        -webkit-appearance: none;
+        width: 100%;
+        height: 3px;
+        outline: none;
+        background: transparent;
+        &::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            width: 17px;
+            height: 17px;
+            background: #fd6f22;
+            border-radius: 50%;
+            cursor: pointer;
+            outline: none;
+            transition: all .4s ease;
+            &:hover{
+                box-shadow: 0 0 0 6px rgba(#f18d56, .4);
+            }
+            &:active{
+                box-shadow: 0 0 0 12px rgba(#f18d56, .2);
+            }
+        }
+    } 
+  }

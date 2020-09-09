@@ -7,33 +7,20 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add('Default', () => (
-    <Button
-      label={text('label', 'My Button')}
-      onClick={action('click', 'hello')}
-    />
+     <Button/>
   ))
-  .add('With Primary', () => (
-    <Button label="Primary Button" onClick={action('click')} />
+  .add('is-bg', () => (
+     <Button className="is-bg" />
   ))
-
-  .add('With Outline', () => (
-    <Button
-      label="Ouline Button"
-      style={{ background: 'transparent', border: '3px solid #fecd43' }}
-      onClick={action('click')}
-    />
-  ))
-  .add('With Rounder Corners', () => (
-    <Button
-      label="Rounded Button"
-      style={{ borderRadius: '15px' }}
-      onClick={action('click')}
-    />
-  ))
-  .add('Disabled', () => (
-    <Button
-      disabled={boolean('Disabled', true)}
-      label="Disabled Button"
-      onClick={action('click')}
-    />
-  ));
+  .add('is-border', () => (
+   <Button className="is-border" />
+))
+.add('is-clear', () => (
+   <Button className="is-clear" />
+))
+.add('no-border', () => (
+   <Button className="no-border" />
+))
+.add('is-disable', () => (
+   <Button className="is-disable" />
+))
