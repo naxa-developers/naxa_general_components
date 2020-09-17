@@ -1,0 +1,76 @@
+ul{
+    &.list{
+        li{
+            display: flex;
+            &:not(:last-child){
+                margin-bottom: 10px;
+            }
+            &:hover{
+                i{
+                    color: #0055ff;
+                }
+                a{
+                    color: #0055ff;
+                }
+            }
+        }
+        &.is-icons{
+            li{
+                i{
+                    font-size: 20px;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+    &.tab-list{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        li{
+            a{
+                display: block;
+                position: relative;
+                padding:10px;
+                @media only screen and (max-width: 1440px){
+                    width: 120px;
+                }
+                img{
+                    -webkit-transition: all 0.4s ease-in-out;
+                    -moz-transition: all 0.4s ease-in-out;
+                    -o-transition: all 0.4s ease-in-out;
+                    -ms-transition: all 0.4s ease-in-out;
+                    transition: all 0.4s ease-in-out;
+                }
+                &:hover{
+                    img{
+                        -webkit-transform: scale(1.1);
+                        -moz-transform: scale(1.1);
+                        -ms-transform: scale(1.1);
+                        -o-transform: scale(1.1);
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            &:not(:last-child){
+                margin-right: 2rem;
+            }
+        }
+        &.is-center{
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+        &.is-end{
+            -ms-flex-pack: flex-end;
+            justify-content: flex-end;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+.custom-tab{
+    
+    .custom-tab-content{
+        padding:.6125rem;
+        .tab-item{
+            display: none;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -ms-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            -webkit-animation: opacity 1s ease;
+            animation: opacity 1s ease;
+            @-webkit-keyframes opacity {
+                0%   {opacity: 0;}
+                100% {opacity: 1;}
+              }
+              @keyframes opacity {
+                0%   {opacity: 0;}
+                100% {opacity: 1;}
+              }
+            &.current{
+                display: block;
+            }
+        }
+    }
+}
+.tab-list{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
+    margin:0;
+    li{
+        
+        a{
+            display: block;
+            text-transform: uppercase;
+            padding: .5rem;
+            color: #333132;
+            font-weight: 600;
+            position: relative;
+            -webkit-transition: all 0.5s linear;
+            -moz-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+            -ms-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+            font-size: .9125rem;
+            border: 1px solid transparent;
+            color: #989898;
+            text-align: center;
+            @media only screen and (max-width: 1440px){
+                font-size: .75rem;
+                padding: .325rem .5rem;
+            }
+        }
+        &:not(:last-child){
+            margin-right: .875rem;
+        }
+        
+    }
+    
+    &.is-center{
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    &.is-end{
+        -ms-flex-pack: flex-end;
+        justify-content: flex-end;
+    }
+    &.is-bg{
+        li{
+            a{
+                background-color: #ffffff;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                border-radius: 0;
+                &.current,
+                &:hover {
+                    color: #0055FF;
+                    background-color: #FFDC1C;
+                }
+            }
+            &.current {
+                a{
+                    color: #0055FF;
+                    background-color: #FFDC1C;
+                }
+            }
+        }
+    }
+    &.is-shadow{
+        background: white;
+        -webkit-box-shadow: 0 0 10px 1px rgba(77, 77, 77, 0.631);
+        box-shadow: 0 0 10px 1px rgba(77, 77, 77, 0.631);
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        li{
+            a{
+                text-transform: capitalize;
+            }
+            &:hover{
+                a{
+                    color: #0055ff;
+                }
+            }
+        }
+    }
+    &.is-border{
+        li{
+            a{
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    left: 0;
+                    bottom: 0;
+                    height: 2px;
+                    background-color: #0055ff;
+                    transition: width .4s linear;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+            &:hover,
+            &.current {
+                a{
+                    color: #333333;
+                    &::after {
+                        width: 100%;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+            &:hover {
+                a{
+                    color: #333333;
+                }
+            }
+        }
+    }
+}

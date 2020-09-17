@@ -7,7 +7,7 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 storiesOf('Dropdown', module)
   .addDecorator(withKnobs)
   .add('Default', () => (
-    <div className="custom-dropdown">
+    <div className="custom-dropdown active">
         <button className="common-button is-bg">
           <span>Dropdown</span>
           <i class="fas fa-caret-down"></i>
