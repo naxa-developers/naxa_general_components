@@ -46,6 +46,24 @@ a.common-link,
             visibility: hidden;
             width: 0;
             font-weight: 500;
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '\f061';
+                font-family: 'Font Awesome 5 Free';
+                top: 0;
+                left: 0;
+                color: white;
+            }
+        }
+        &:hover{
+            svg,
+            i{
+                margin-left: .6125rem;
+                width: auto;
+                opacity: 1;
+                visibility: visible;
+            }
         }
     }
 
@@ -83,12 +101,6 @@ a.common-link,
         &:hover {
             background-color: rgba(#0055ff, .9);
             border-color: rgba(#0055ff, .9);
-            svg,i {
-                margin-left: .6125rem;
-                width: auto;
-                opacity: 1;
-                visibility: visible;
-            }
         }
 
     }
@@ -137,25 +149,38 @@ a.common-link,
         }
     }
 
-  &.no-border {
-      background-color: transparent;
-      color: #0055ff;
-      border-color: transparent;
-      &.is-icon {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          color: blue;
-          font-size: .9375rem;
+    &.no-border {
+        background-color: transparent;
+        color: #0055ff;
+        border-color: transparent;
+        &.is-icon {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: blue;
+            font-size: .9375rem;
 
-          i {
-              margin-right: .5rem;
-          }
-      }
-      &:hover{
-          color: #001ACB;
-      }
-  }
+            i {
+                margin-right: .5rem;
+            }
+        }
+        &:hover{
+            color: #001ACB;
+        }
+    }
+
+    &.is-sm{
+        padding: .25rem 1.5rem;
+        min-width: 100px;
+    }
+    &.is-rounded{
+        -webkit-border-radius: 20px;
+        border-radius: 20px;
+    }
+    &.is-mid-rounded{
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
 
   
   button,
