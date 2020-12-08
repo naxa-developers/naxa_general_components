@@ -7,27 +7,12 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 storiesOf('Select', module)
   .addDecorator(withKnobs)
   .add('Default', () => (
-    <div class="custom-select">
-        <p class="selected-item">
-            <span>Choose your option</span>
-        </p>
-        <ul class="select-list left-dropdown">
-            <li>
-                <i class="fas fa-hand-point-right"></i>
-                <span>Select 1</span>
-            </li>
-            <li>
-                <i class="fas fa-hand-point-right"></i>
-                <span>Select 2 </span>
-            </li>
-            <li>
-                <i class="fas fa-hand-point-right"></i> 
-                <span>Select 3 </span>
-            </li>
-            <li>
-                <i class="fas fa-hand-point-right"></i>
-                <span>Select 4 </span>
-            </li>
-        </ul>
-    </div>
-  ))
+    <Select
+      options={[
+        { label: 'option1', value: 'option1' },
+        { label: 'option2', value: 'option2' },
+        { label: 'option3', value: 'option3' },
+      ]}
+      onChange={(selectedOption) => console.log(selectedOption)}
+    />
+  ));
