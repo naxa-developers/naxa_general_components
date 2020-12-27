@@ -1,94 +1,135 @@
-import React from 'react';
-import Textinputs from './index.js';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import React from "react";
+import FormGroupWrapper, { TextInputs } from "./index.js";
+import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-storiesOf('Textinputs', module)
+storiesOf("Textinputs", module)
   .addDecorator(withKnobs)
-  .add('with Default', () => (
-      <form>
-        <div className="form-group">
-            <input type="text" className="form-control" placeholder="Enter Name"></input>
-        </div>
-        <div class="form-group custom-form-group">
-            <input type="text" name="name" class="form-control" placeholder="Enter Name" required=""/>   
-            <span class="border-span"></span>
-        </div>
-      </form>
+  .add("with Default", () => (
+    <form>
+      <FormGroupWrapper>
+        <TextInputs
+          type="text"
+          className="form-control"
+          placeholder="Enter Name"
+        />
+      </FormGroupWrapper>
+      <FormGroupWrapper className="custom-form-group" border>
+        <TextInputs
+          type="text"
+          name="name"
+          className="form-control"
+          placeholder="Enter Name"
+        />
+      </FormGroupWrapper>
+    </form>
   ))
 
-  .add('with Label', () => (
+  .add("with Label", () => (
     <form>
-      <div className="form-group">
-          <label>Name: </label>
-          <input type="text" className="form-control" placeholder="Your Name"></input>
-      </div>
-      <div class="form-group custom-form-group">
-            <input type="text" name="name" id="inputname" class="form-control" placeholder="" required=""/>
-            <label for="inputname">Name</label>
-            <span class="border-span"></span>
-        </div>
+      <FormGroupWrapper>
+        <label>Name: </label>
+        <TextInputs
+          type="text"
+          className="form-control"
+          placeholder="Your Name"
+        />
+      </FormGroupWrapper>
+      <FormGroupWrapper className="custom-form-group" border>
+        <TextInputs
+          type="text"
+          name="name"
+          id="inputname"
+          className="form-control"
+        />
+        <label htmlFor="inputname">Name</label>
+      </FormGroupWrapper>
     </form>
-   ))
+  ))
 
-   .add('with Password', () => (
+  .add("with Password", () => (
     <form>
-      <div className="form-group">
-          <label>Password: </label>
-          <input type="password" className="form-control" placeholder="Your Password"></input>
-      </div>
-      
-      <div class="form-group custom-form-group">
-            <input type="password" name="name" id="inputpswd" class="form-control" placeholder="" required=""/>
-            <label for="inputpswd">Password</label>
-            <span class="border-span"></span>
-        </div>
+      <FormGroupWrapper>
+        <label>Password: </label>
+        <TextInputs
+          type="password"
+          className="form-control"
+          placeholder="Your Password"
+        />
+      </FormGroupWrapper>
+      <FormGroupWrapper className="custom-form-group" border>
+        <TextInputs
+          type="password"
+          name="name"
+          id="inputpswd"
+          className="form-control"
+        />
+        <label htmlFor="inputpswd">Password</label>
+      </FormGroupWrapper>
     </form>
-))
+  ))
 
-.add('with Email', () => (
+  .add("with Email", () => (
     <form>
-      <div className="form-group">
-          <label>Email: </label>
-          <input type="email" className="form-control" placeholder="Your Email"></input>
-      </div>
-
-      <div class="form-group custom-form-group">
-          <input type="email" name="name" id="inputemail" class="form-control" placeholder="" required=""/>
-          <label for="inputemail">Email</label>
-          <span class="border-span"></span>
-      </div>
-      
-      <div class="form-group custom-form-group">
-          <i class="fas fa-envelope prefix"></i>
-          <input type="email" name="name" id="inputemail" class="form-control" placeholder="" required=""/>
-          <label for="inputemail">Email</label>
-          <span class="border-span"></span>
-      </div>
+      <FormGroupWrapper>
+        <label>Email: </label>
+        <TextInputs
+          type="email"
+          className="form-control"
+          placeholder="Your Email"
+        />
+      </FormGroupWrapper>
+      <FormGroupWrapper className="custom-form-group" border>
+        <TextInputs
+          type="email"
+          name="name"
+          id="inputemail"
+          className="form-control"
+        />
+        <label htmlFor="inputemail">Email</label>
+      </FormGroupWrapper>
+      <FormGroupWrapper className="custom-form-group" border>
+        <i className="fas fa-envelope prefix" />
+        <TextInputs
+          type="email"
+          name="name"
+          id="inputemail"
+          className="form-control"
+        />
+        <label htmlFor="inputemail">Email</label>
+      </FormGroupWrapper>
     </form>
-))
+  ))
 
-.add('with Fileupload', () => (
+  .add("with Fileupload", () => (
     <form>
-      <div className="form-group">
-          <label>Upload a File </label>
-          <input type="file" className="form-control" placeholder="Your Email"></input>
-      </div>
-
-      <div className="form-group custom-file">
-          <input type="file" className="form-control custom-file-input" id="customFile"></input>
-          <label class="custom-file-label" for="customFile">Choose file</label>
-      </div>
-
-      <div class="form-group custom-form-group">
-        <div class="btn">
+      <FormGroupWrapper>
+        <label>Upload a File</label>
+        <TextInputs
+          type="file"
+          className="form-control"
+          placeholder="Your Email"
+        />
+      </FormGroupWrapper>
+      <FormGroupWrapper className="custom-file">
+        <TextInputs
+          type="file"
+          className="form-control custom-file-input"
+          id="customFile"
+        />
+        <label className="custom-file-label" htmlFor="customFile">
+          Choose File
+        </label>
+      </FormGroupWrapper>
+      <FormGroupWrapper className="custom-form-group">
+        <div className="btn">
           <span>File</span>
-          <input type="file" class="form-control" id="TextInput-4" value=""/>
+          <TextInputs type="file" className="form-control" id="TextInput-4" />
         </div>
-        <div class="file-path-wrapper">
-          <input class="form-control" type=""/>
+        <div className="file-path-wrapper">
+          <TextInputs className="form-control" />
         </div>
-      </div>
+      </FormGroupWrapper>
     </form>
-))
+  ));
