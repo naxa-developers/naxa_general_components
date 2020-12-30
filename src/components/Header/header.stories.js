@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './index.js';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import LogoDark from "./../../img/logo/logo-dark.png";
 import LogoWhite from "./../../img/logo/logo-white.png";
 import MenuImg from "./../../img/nav/agreement.png";
@@ -11,65 +11,20 @@ import Flag from "./../../img/logo/flag.jpg";
 storiesOf('Header', module)
   .addDecorator(withKnobs)
   .add('Default', () => (
-    <header className="site-header">
-      <div class="container">
-        <div className="header-in">
-            {/* logo */}
-            <a className="logo is-dark">
-                <img class="logo-dark" src={LogoDark} alt="logo-dark" />
-                <img class="logo-white" src={LogoWhite} alt="logo-dark" />
-            </a>
-
-            {/* navbar menu */}
-            <div className="main-navigation">
-              <ul class="menu-collapse">
-                <li class="menu-item">
-                  <a href="#">About</a>
-                </li>
-                <li class="menu-item is-submenu">
-                  <a href="#">Services</a>
-                  <ul class="submenu">
-                      <li>
-                          <a href="#">
-                            <i class="fas fa-atom"></i>
-                              Sublist 1
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">
-                            <img src={MenuImg} alt="menu img" />Sublist 2
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">
-                              Sublist 3
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">Sublist 4</a>
-                      </li>
-                  </ul>
-                </li>
-                <li class="menu-item">
-                  <a href="#">Team</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#">Media</a>
-                </li>
-              </ul>
-            </div>
-
-            {/* toggle button */}
-            <div class="toggle-button">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-
-        </div>
-      </div>  
-    </header>    
+      <Header
+      tabClassName={select(
+          "Type",
+          {
+              default: "",
+              withFixed: "is-fixed",
+              withFixedOnScroll: "is-fixed scroll-header",
+              withForm: "is-bg",
+              withLight: "is-light",
+              withDark: "is-dark"
+          },
+          ""
+      )}
+  />
   ))
 
   .add('With fixed-header', () => (
