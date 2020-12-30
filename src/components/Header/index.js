@@ -11,28 +11,29 @@ import './../Dropdown/dropdown.scss';
 import './../Select-language/lang.scss';
 import './../../css/all.css';
 
-const Header = (props) => (
-         <header className={`site-header ${props.className}`}>
-      <div class="container">
+const Header = ({tabClassName}) => {
+  return(
+    <header className={`site-header ${tabClassName}`}>
+      <div className="container">
         <div className="header-in">
             {/* logo */}
-            <a className="logo is-dark">
-                <img class="logo-dark" src={LogoDark} alt="logo-dark" />
-                <img class="logo-white" src={LogoWhite} alt="logo-dark" />
+            <a className={tabClassName==='is-dark' ? "logo is-light" :  "logo is-dark"}>
+                <img className="logo-dark" src={LogoDark} alt="logo-dark" />
+                <img className="logo-white" src={LogoWhite} alt="logo-dark" />
             </a>
 
             {/* navbar menu */}
-            <div className="main-navigation">
-              <ul class="menu-collapse">
-                <li class="menu-item">
+            <div className={tabClassName==='is-dark' ? "main-navigation is-dark" :  "main-navigation"}>
+              <ul className="menu-collapse">
+                <li className="menu-item">
                   <a href="#">About</a>
                 </li>
-                <li class="menu-item is-submenu">
+                <li className="menu-item is-submenu">
                   <a href="#">Services</a>
-                  <ul class="submenu">
+                  <ul className="submenu">
                       <li>
                           <a href="#">
-                            <i class="fas fa-atom"></i>
+                            <i className="fas fa-atom"></i>
                               Sublist 1
                           </a>
                       </li>
@@ -51,17 +52,37 @@ const Header = (props) => (
                       </li>
                   </ul>
                 </li>
-                <li class="menu-item">
+                <li className="menu-item">
                   <a href="#">Team</a>
                 </li>
-                <li class="menu-item">
+                <li className="menu-item">
                   <a href="#">Media</a>
                 </li>
               </ul>
             </div>
 
+               {/* form */}
+              { tabClassName==='with-form' && <div className="right">
+                <div className="search-option">
+                    <a href="#/"><i className="fas fa-search"></i></a>
+                </div>
+                <button className="common-button is-bg is-icon is-sm is-mid-rounded">
+                    <span>Login</span>
+                    <i></i>
+                </button> 
+                <div className="lang-select custom-dropdown active">
+                  <a href="#/" className="flag">
+                      <img src={Flag} alt="nepal_flag"/>
+                  </a>
+                  <ul className="custom-dropdown-menu">
+                      <li><a>Nepali</a></li>
+                      <li><a>English</a></li>
+                  </ul>
+                </div>
+            </div>
+}
             {/* toggle button */}
-            <div class="toggle-button">
+            <div className="toggle-button">
               <span></span>
               <span></span>
               <span></span>
@@ -71,5 +92,6 @@ const Header = (props) => (
         </div>
       </div>  
     </header>    
-);
+)
+}
 export default Header;
