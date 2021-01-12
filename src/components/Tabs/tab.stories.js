@@ -2,6 +2,7 @@ import React from 'react';
 import Tabs, { Tab } from './index.js';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+<<<<<<< HEAD
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 // import Duolingo from './../../img/tabs/Duolingo.png';
 // import Flurry from './../../img/tabs/Flurry.png';
@@ -238,3 +239,84 @@ storiesOf('Tabs', module)
 //       </div>
 //   </div>
 //   ))
+=======
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+
+storiesOf('Tabs', module)
+    .addDecorator(withKnobs)
+    .add('Default', () => (
+        <Tabs
+        tabClassName={select(
+                "Type",
+                {
+                    default: "tab-list is-bg",
+                    withBorder: "tab-list is-border",
+                    withShadow: "tab-list is-shadow",
+                    isCenter: "tab-list is-center"
+                },
+                "tab-list is-bg"
+            )}
+        />
+    ))
+
+    .add('with border', () => (
+        <Tabs
+        tabClassName={select(
+            "Type",
+            {
+                default: "tab-list is-bg",
+                withBorder: "tab-list is-border",
+                withShadow: "tab-list is-shadow",
+                isCenter: "tab-list is-center"
+            },
+            "tab-list is-border"
+        )}
+    />
+       
+    ))
+
+    .add('with shadow', () => (
+        <Tabs
+        tabClassName={select(
+            "Type",
+            {
+                default: "tab-list is-bg",
+                withBorder: "tab-list is-border",
+                withShadow: "tab-list is-shadow",
+                isCenter: "tab-list is-center"
+            },
+            "tab-list is-shadow"
+        )}
+    />
+    ))
+
+    .add('Is-Center', () => (
+        <Tabs
+        tabClassName={select(
+            "Type",
+            {
+                default: "tab-list is-bg",
+                withBorder: "tab-list is-border",
+                withShadow: "tab-list is-shadow",
+                isCenter: "tab-list is-center"
+            },
+            "tab-list is-center"
+        )}
+    />
+    ))
+
+    .add('Is-End', () => (
+        <Tabs
+        tabClassName={select(
+            "Type",
+            {
+                default: "tab-list is-bg",
+                withBorder: "tab-list is-border",
+                withShadow: "tab-list is-shadow",
+                isCenter: "tab-list is-center"
+            },
+            "tab-list is-end"
+        )}
+    />
+    ))
+>>>>>>> a927914cb247d4067616864c033478c6d55be8e0
