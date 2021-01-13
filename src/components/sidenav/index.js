@@ -9,7 +9,7 @@ class Sidenav extends React.Component {
     super(props)
 
     this.state = {
-      togglesidenav: false,
+      togglesidenav: true,
       activeSubmenu: null,
       activeSubmenuItem: null,
     }
@@ -17,7 +17,7 @@ class Sidenav extends React.Component {
 
   handleTogglesidenav = () => {
     this.setState(prevState => ({
-      togglesidenav: ~prevState.togglesidenav,
+      togglesidenav: !prevState.togglesidenav,
     }))
   }
   
@@ -44,22 +44,21 @@ class Sidenav extends React.Component {
       handleSubmenuActive,
       handleSubmenuList,
     } = this;
-    console.log('active', activeSubmenu, activeSubmenuItem);
     return (
       <main className={togglesidenav ? `body-wrapper ${mainClass}`: `body-wrapper ${mainClass} sidenav-collapse`}>
         <aside className={`sidenav ${asideClass}`}
         >
           <header className="sidenav-header">
-            {/* <a  onClick={() => handleTogglesidenav()} href="#" className="close-nav"><i className="fas fa-times"></i></a> */}
+            <a  onClick={() => handleTogglesidenav()} href="#" className="close-nav"><i className="fas fa-times"></i></a>
             <a href="#" className="logo"><img src={Logo} /></a>
-            <a
+            {/* <a
             onClick={() => handleTogglesidenav()}
-            href="#" className="toggle-sidebar">
+            href="#" className="toggle-sidebar sidenav-collapse ">
               <span></span>
               <span></span>
               <span></span>
               <span></span>
-            </a>
+            </a> */}
           </header>
           <ul className="sidenav-body">
             <ul className="sidenav-menu">
