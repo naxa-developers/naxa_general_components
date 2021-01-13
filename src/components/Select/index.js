@@ -157,12 +157,38 @@ class Select extends PureComponent {
     );
   };
 
-  renderList = () => {
+  renderSearchBar = () => {
     const {
-      state: { filteredOptions },
+      state: { searchText },
+
+      searchHandler,
     } = this;
 
-    if (filteredOptions.length === 0) {
+    return (
+      <div className="search-bar">
+        <div className="search-wrap">
+          <input
+            className="form-control"
+            name="searchText"
+            value={searchText}
+            autoComplete="off"
+            placeholder="Search"
+            onChange={(e) => searchHandler(e)}
+            ref={(el) => {
+              this.searchEl = el;
+            }}
+          />
+        </div>
+      </div>
+    );
+  };
+
+  renderList = (options) => {
+    // const {
+    //   state: { filteredOptions },
+    // } = this;
+
+    if (options.length === 0) {
       return (
         <li>
           <label>No Options</label>
@@ -170,7 +196,18 @@ class Select extends PureComponent {
       );
     }
 
-    return filteredOptions.map((opt) => {
+    return options.map((opt) => {
+      if (opt.options) {
+        return (
+          <div>
+            <p>{opt.label}</p>
+            <ul style={{ padding: '0.325rem 0' }} key={opt.label}>
+              {this.renderList(opt.options)}
+            </ul>
+          </div>
+        );
+      }
+
       return (
         <li
           key={opt.value}
@@ -187,8 +224,8 @@ class Select extends PureComponent {
 
   render() {
     const {
-      state: { showList, selectTitle },
-      props: { withSearchBar },
+      state: { showList, selectTitle, filteredOptions },
+      props: { withSearch },
 
       toggleListHandler,
       closeListHandler,
@@ -210,49 +247,26 @@ class Select extends PureComponent {
           <span>{selectTitle}</span>
         </p>
         <ul className="select-list left-dropdown">
-          {showList && this.renderList()}
+          {/* {showList && this.renderList()}
+           */}
+          {showList && withSearch && this.renderSearchBar()}
+          {showList && this.renderList(filteredOptions)}{' '}
         </ul>
       </div>
-
-      // <div className="input-in">
-      //   <div
-      //     className={`custom-select no-outline ${
-      //       showList ? 'show-dropdown' : ''
-      //     }`}
-      //     role="button"
-      //     tabIndex="0"
-      //     onBlur={closeListHandler}
-      //   >
-      //     <p
-      //       className="selected-item no-outline"
-      //       role="button"
-      //       tabIndex="0"
-      //       onClick={toggleListHandler}
-      //       onKeyUp={toggleListHandler}
-      //     >
-      //       <span>{selectTitle}</span>
-      //     </p>
-      //     <ul className="select-list left-dropdown">
-      //       {' '}
-      //       {showList && withSearchBar && this.renderSearchBar()}
-      //       {showList && this.renderList()}{' '}
-      //     </ul>
-      //   </div>
-      // </div>
     );
   }
 }
 
 Select.propTypes = {
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  withSearchBar: PropTypes.bool,
+  withSearch: PropTypes.bool,
   options: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
 Select.defaultProps = {
   defaultValue: null,
-  withSearchBar: false,
+  withSearch: false,
 };
 
 export default Select;
