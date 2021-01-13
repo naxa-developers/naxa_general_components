@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import LogoDark from "./../../img/logo/logo-dark.png";
 import LogoWhite from "./../../img/logo/logo-white.png";
 import MenuImg from "./../../img/nav/agreement.png";
-import Flag from "./../../img/logo/flag.jpg";
+import NepalFlag from "./../../img/logo/flag.jpg";
+import UsFlag from "./../../img/logo/united-states.svg";
 
 import './header.scss';
 import './menu.scss';
@@ -12,6 +13,9 @@ import './../Select-language/lang.scss';
 import './../../css/all.css';
 
 const Header = ({tabClassName}) => {
+  const [toggleSidenav, setToggleSidenav] = useState(false);
+  const [language, setLanguage] = useState(0);
+  const [languageSelectActive, setLanguageSelectActive] = useState(false);
   return(
     <header className={`site-header ${tabClassName}`}>
       <div className="container">
@@ -23,8 +27,8 @@ const Header = ({tabClassName}) => {
             </a>
 
             {/* navbar menu */}
-            <div className={tabClassName==='is-dark' ? "main-navigation is-dark" :  "main-navigation"}>
-              <ul className="menu-collapse">
+            <div className={tabClassName==='is-dark' ? "main-navigation is-dark" :  "main-navigation active"}>
+              <ul className="menu-collapse open">
                 <li className="menu-item">
                   <a href="#">About</a>
                 </li>
@@ -63,26 +67,30 @@ const Header = ({tabClassName}) => {
 
                {/* form */}
               { tabClassName==='with-form' && <div className="right">
-                <div className="search-option">
+                {/* <div className="search-option">
                     <a href="#/"><i className="fas fa-search"></i></a>
-                </div>
+                </div> */}
                 <button className="common-button is-bg is-icon is-sm is-mid-rounded">
                     <span>Login</span>
                     <i></i>
                 </button> 
-                <div className="lang-select custom-dropdown active">
+                <div className={languageSelectActive ?  "lang-select custom-dropdown active" :  "lang-select custom-dropdown"}
+                onClick={() => setLanguageSelectActive(!languageSelectActive)}
+                >
                   <a href="#/" className="flag">
-                      <img src={Flag} alt="nepal_flag"/>
+                      <img src={language===0 ?  NepalFlag : UsFlag} alt="nepal_flag"/>
                   </a>
                   <ul className="custom-dropdown-menu">
-                      <li><a>Nepali</a></li>
-                      <li><a>English</a></li>
+                      <li onClick={() => setLanguage(0)} ><a>Nepali</a></li>
+                      <li onClick={() => setLanguage(1)}><a>English</a></li>
                   </ul>
                 </div>
             </div>
 }
             {/* toggle button */}
-            <div className="toggle-button">
+            <div className={toggleSidenav ? "toggle-button active" : "toggle-button"}
+            onClick={() => setToggleSidenav(!toggleSidenav)}
+            >
               <span></span>
               <span></span>
               <span></span>
