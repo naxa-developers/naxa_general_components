@@ -1,76 +1,22 @@
-import React from 'react';
-import Collapsible from './index.js';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import React from "react";
+import Collapsible from "./index.js";
+import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-storiesOf('Collapsible', module)
+storiesOf("Collapsible", module)
   .addDecorator(withKnobs)
-  .add('Accordion', () => (
-    <ul className="collapsible accordion">
-        <li>
-            <div class="collapsible-header">
-                Collapsible Header 1
-            </div>
-            <div class="collapsible-body">
-                <div class="content">
-                    <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
-                </div>
-            </div>
-        </li>
-        <li>
-        <div class="collapsible-header">
-                Collapsible Header 2
-            </div>
-            <div class="collapsible-body">
-                <div class="content">
-                    <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
-                </div>
-            </div>
-        </li>
-        <li>
-        <div class="collapsible-header">
-                Collapsible Header 3
-            </div>
-            <div class="collapsible-body">
-                <div class="content">
-                    <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
-                </div>
-            </div>
-        </li>
-    </ul>
+  .add("Accordian", () => (
+    <Collapsible
+      type="accordion"
+      header="Hello world"
+      body="consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu"
+    />
   ))
-  .add('Popout', () => (
-    <ul className="collapsible popout">
-        <li>
-            <div class="collapsible-header">
-                Collapsible Header 1
-            </div>
-            <div class="collapsible-body">
-                <div class="content">
-                    <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
-                </div>
-            </div>
-        </li>
-        <li>
-        <div class="collapsible-header">
-                Collapsible Header 2
-            </div>
-            <div class="collapsible-body">
-                <div class="content">
-                    <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
-                </div>
-            </div>
-        </li>
-        <li>
-        <div class="collapsible-header">
-                Collapsible Header 3
-            </div>
-            <div class="collapsible-body">
-                <div class="content">
-                    <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
-                </div>
-            </div>
-        </li>
-    </ul>
-  ))
+  .add("Popout", () => (
+    <Collapsible
+      type="popout"
+      header="Hello world"
+      body="consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu"
+    />
+  ));
