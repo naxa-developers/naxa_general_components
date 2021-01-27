@@ -1,8 +1,18 @@
-import React from 'react';
-import './collapsible.scss';
+import React, { useState } from "react";
+import "./collapsible.scss";
 
-const Collapsible = (props) => (
-  <ul className={`collapsible ${props.className}`} onClick={props.onClick}>
-  </ul>
-);
+function Collapsible({ header, body, type }) {
+  return (
+    <ul className={`collapsible ${type}`}>
+      <li>
+        <div className="collapsible-header">{header}</div>
+        <div className="collapsible-body">
+          <div class="content">
+            <p>{body}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  );
+}
 export default Collapsible;
