@@ -38,7 +38,7 @@ const ButtonNew = ({onClick,iconName,btnLabel,btnType,btnSize,isDisabled}) => {
     <span>{btnLabel}</span>
   </button>
 )};
-ButtonNew.PropTypes = {
+ButtonNew.propTypes = {
   isDisabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   iconName: PropTypes.string,

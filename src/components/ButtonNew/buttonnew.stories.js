@@ -48,32 +48,4 @@ storiesOf('Button New', module)
     )}
     isDisabled={boolean("Disabled", false)}/>
   ))
-  .add('is-border', () => (
-   <Button className="is-border" />
-))
-.add('is-clear', () => (
-   <Button className="is-clear" />
-))
-.add('no-border', () => (
-   <Button className="no-border" />
-))
-.add('is-disable', () => (
-   <Button className="is-disable" />
-))
-.add('is-icon', () => (
-   <Button className="is-bg is-icon">
-      <i></i>
-     </Button>
-))
-.add('is-small', () => (
-   <Button className="is-bg is-sm is-rounded"/>
-))
-.add('is-rounded', () => (
-   <Button className="is-bg is-rounded"/>
-))
-.add('is-mid-rounded', () => (
-   <Button className="is-bg is-mid-rounded"/>
-))
-.add('is-block', () => (
-   <Button className="is-bg is-full-line"/>
-))
+  
